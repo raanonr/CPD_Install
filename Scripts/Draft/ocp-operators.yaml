@@ -1,0 +1,18 @@
+apiVersion: mirror.openshift.io/v1alpha2
+kind: ImageSetConfiguration
+mirror:
+  operators:
+  - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.16
+    packages:
+    - name: ocs-operator
+      channels:
+      - name: stable-4.16
+    - name: mcg-operator
+      channels:
+      - name: stable-4.16
+    - name: serverless-operator
+      channels:
+      - name: stable
+    - name: openshift-cert-manager-operator
+      channels:
+      - name: stable-v1

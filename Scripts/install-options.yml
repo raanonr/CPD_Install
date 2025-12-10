@@ -1,0 +1,27 @@
+# For user-case: x.ai, x.orch, x.data
+# Copy this file to $WORK
+
+########################################################################
+# watsonx.ai parameters
+########################################################################
+custom_spec:  
+ watsonx_ai:
+  # DEFAULT: tuning_disabled: false
+  tuning_disabled: true
+  lite_install: false
+
+################################################################################
+# watsonx Orchestrate parameters
+################################################################################
+#watson_orchestrate_watsonx_ai_type: false
+
+################################################################################
+# watsonx Assistant parameters
+################################################################################
+#watson_assistant_size: Production
+watson_assistant_size: Starter
+#watson_assistant_bigpv: false
+#watson_assistant_analytics_enabled: true
+#watson_assistant_watsonx_ai_type: embedded
+#5.1.2: watson_assistant_syom_models: []
+#5.1.2: watson_assistant_ootb_models: []

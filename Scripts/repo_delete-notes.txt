@@ -1,0 +1,34 @@
+  427  pts0 2025-03-03 13:58:00: Scripts/repo_delete.sh cp/cpd/google-flan-t5-xl cp/cpd/google-flan-ul2
+  439  pts0 2025-03-03 14:06:04: Scripts/repo_delete.sh cp/cpd/google-flan-t5-xxl
+  428  pts0 2025-03-03 13:58:44: Scripts/curl_private.sh | wc -l
+  429  pts0 2025-03-03 13:58:56: du -sm cpd-private-registry/
+
+  443  pts0 2025-03-03 14:09:14: podman exec -it cpd-private-registry bin/registry garbage-collect /etc/docker/registry/config.yml
+
+  453  pts0 2025-03-03 14:18:17: podman stop cpd-private-registry 
+  454  pts0 2025-03-03 14:18:32: podman start cpd-private-registry 
+
+  455  pts0 2025-03-03 14:18:37: Scripts/curl_private.sh | egrep 'cp/cpd/google-flan-ul2|cp/cpd/google-flan-t5-xl|cp/cpd/google-flan-t5-xxl|cp/cpd/multilingual-e5-large|cp/cpd/llama-3-2-1b-instruct|cp/cpd/llama-3-2-3b-instruct|cp/cpd/llama-3-2-11b-vision-instruct|cp/cpd/llama-3-1-70b-instruct'
+  463  pts0 2025-03-03 14:24:10: du -sm cpd-private-registry/registry/data/docker/registry/v2/repositories/cp/cpd/*{flan,llama,e5}*
+
+  453  pts0 2025-03-03 14:18:17: podman stop cpd-private-registry 
+  464  pts0 2025-03-03 14:27:21: rm -fr cpd-private-registry/registry/data/docker/registry/v2/repositories/cp/cpd/google-flan-t5-xl cpd-private-registry/registry/data/docker/registry/v2/repositories/cp/cpd/google-flan-t5-xxl cpd-private-registry/registry/data/docker/registry/v2/repositories/cp/cpd/google-flan-ul2
+
+  465  pts0 2025-03-03 14:27:46: podman start cpd-private-registry 
+  466  pts0 2025-03-03 14:28:14: podman exec -it cpd-private-registry bin/registry garbage-collect /etc/docker/registry/config.yml
+
+  467  pts0 2025-03-03 14:28:34: du -sm cpd-private-registry/registry/data/docker/registry/v2/repositories/cp/cpd/*{flan,llama,e5}*
+  468  pts0 2025-03-03 14:28:41: du -sm cpd-private-registry/
+  469  pts0 2025-03-03 14:29:15: Scripts/curl_private.sh | wc -l
+
+  471  pts0 2025-03-03 14:35:49: Scripts/repo_sizes.sh cp/cpd/llama-3-2-1b-instruct cp/cpd/llama-3-2-3b-instruct cp/cpd/multilingual-e5-large
+Scripts/repo_sizes.sh \
+cp/cpd/llama-3-1-70b-instruct-part1 \
+cp/cpd/llama-3-1-70b-instruct-part2 \
+cp/cpd/llama-3-1-70b-instruct-part3 \
+cp/cpd/llama-3-1-70b-instruct-part4 \
+cp/cpd/llama-3-2-11b-vision-instruct \
+cp/cpd/llama-3-2-1b-instruct \
+cp/cpd/llama-3-2-3b-instruct \
+cp/cpd/multilingual-e5-large
+

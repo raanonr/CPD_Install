@@ -1,0 +1,33 @@
+# Notes. User TAR-EXCLUDE to exclude directories from tar.
+# Sample usage for tar commands.
+
+
+cd $WORKDIR
+export SAVE_PREFIX=${WORKDIR}_ToSend/$(date "+%Y%m%d")
+mkdir -p $(dirname $SAVE_PREFIX)
+
+# Create the TAR-EXCLUDE files
+echo "Usage: tar --exclude-tag-under=TAR-EXCLUDE -cvf \${SAVE_PREFIX}_first.tar Scripts Download" > Scripts/Bak/TAR-EXCLUDE
+
+#tar --exclude-tag-under=TAR-EXCLUDE -cvf ${SAVE_PREFIX}_first.tar Scripts Download
+tar --exclude-tag-under=TAR-EXCLUDE -cvf ${SAVE_PREFIX}_scripts.tar Scripts
+tar --exclude-tag-under=TAR-EXCLUDE -cvf ${SAVE_PREFIX}_download.tar Download
+
+#tar --exclude-tag-under=TAR-EXCLUDE -cf - cpd-cli-workspace/ cpd-private-registry/ | split --verbose -d -b 5G - ${SAVE_PREFIX}_img.tar.part-
+tar --exclude-tag-under=TAR-EXCLUDE -cf ${SAVE_PREFIX}_workspace.tar cpd-cli-workspace/ 
+
+tar --exclude-tag-under=TAR-EXCLUDE -cf - ${PCR_NAME} | split --verbose -d -b 5G - ${SAVE_PREFIX}_${PCR_NAME}.tar.part-
+tar --exclude-tag-under=TAR-EXCLUDE -cf - cpd-priv-reg-xdata | split --verbose -d -b 5G - ${SAVE_PREFIX}_cpd-priv-reg-xdata.tar.part-
+
+cd $(dirname $SAVE_PREFIX)
+export PREFIX=$(basename ${SAVE_PREFIX})
+md5sum ${PREFIX}_first.tar > ${PREFIX}_first.tar.before.md5
+md5sum ${PREFIX}_workspace.tar > ${PREFIX}_workspace.tar.before.md5
+md5sum ${PREFIX}_${PCR_NAME}.tar.part-* 2>&1 | tee ${PREFIX}_${PCR_NAME}.tar.part.before.md5
+
+####
+# Restore split tar files:
+
+export PREFIX=$(basename ${SAVE_PREFIX})
+cat ${PREFIX}_img.tar.part-* | tar -xf -
+

@@ -1,0 +1,13 @@
+Creating directory: /Install/CPD_5.1.1/Download/operators/oc-mirror-workspace/src/publish
+Creating directory: /Install/CPD_5.1.1/Download/operators/oc-mirror-workspace/src/v2
+Creating directory: /Install/CPD_5.1.1/Download/operators/oc-mirror-workspace/src/charts
+Creating directory: /Install/CPD_5.1.1/Download/operators/oc-mirror-workspace/src/release-signatures
+backend is not configured in /Install/CPD_5.1.1/Download/operators/ocp-operators.yaml, using stateless mode
+backend is not configured in /Install/CPD_5.1.1/Download/operators/ocp-operators.yaml, using stateless mode
+No metadata detected, creating new workspace
+time="2025-03-20T06:34:24-07:00" level=info msg="trying next host" error="failed to authorize: failed to fetch anonymous token: unexpected status from GET request to https://registry.redhat.io/auth/realms/rhcc/protocol/redhat-docker-v2/auth?scope=repository%3Aredhat%2Fredhat-operator-index%3Apull&service=docker-registry: 401 Unauthorized" host=registry.redhat.io
+
+The rendered catalog is invalid.
+
+Run "oc-mirror list operators --catalog CATALOG-NAME --package PACKAGE-NAME" for more information.
+
