@@ -6,7 +6,8 @@ My Git repository for CPD install scripts. Manage each version in a separate bra
 git branch/checkout CPD_5.1.1  
 When ready, (other options: rebase, cherry-pick <commit>)  
   git switch master  
-  git merge --squash <branch>  
+  git merge --squash [-X theirs] <branch>  
+  (-X theirs: accept the changes from <branch> without prompting.)  
   
 To update the branch with the master (README.md, .gitignore, etc.):  
   git switch <branch>  
