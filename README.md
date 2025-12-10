@@ -11,12 +11,12 @@ When ready, (other options: rebase, cherry-pick <commit>)
 To update the branch with the master (README.md, .gitignore, etc.):  
   git switch <branch>  
   git rebase master  
-
+  
 Other:  
-  git remote add origin https://github.ibm.com/reutlinger/CPD_Install.git
-  git push -u origin master
-
-  git remote add public https://github.com/raanonr/CPD_Install.git
-  git remote -v
-  git push public master
-  git push public CPD_5.1.1
+  git remote add origin https://github.ibm.com/reutlinger/CPD_Install.git  
+  git push -u origin master  
+  
+  git remote add public https://github.com/raanonr/CPD_Install.git  
+  git remote -v  
+  git push public master  
+  git push public CPD_5.1.1  
